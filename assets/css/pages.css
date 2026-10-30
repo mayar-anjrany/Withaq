@@ -1,0 +1,126 @@
+/* =========================================================
+   أنماط خاصة بالصفحات: الرئيسية، المنصة، الصفحات القانونية…
+   ========================================================= */
+
+/* ---------- مقدمة الصفحات الداخلية ---------- */
+.page-hero { padding-block: clamp(48px, 7vw, 88px) clamp(32px, 5vw, 56px); border-bottom: 1px solid var(--line); }
+.page-hero h1 { margin-bottom: 0.4em; }
+.page-hero .lead { font-size: 1.1875rem; color: var(--text-soft); max-width: 700px; margin: 0; }
+
+/* ---------- الصفحة الرئيسية: البطل ---------- */
+.hero { padding-block: clamp(48px, 8vw, 104px); }
+.hero__grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+.hero h1 { font-size: var(--fs-display); line-height: 1.2; margin-bottom: 0.5em; }
+.hero__lead { font-size: 1.1875rem; color: var(--text-soft); max-width: 560px; }
+.hero__status { display: inline-flex; align-items: center; gap: 10px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-pill); padding: 6px 16px; font-size: var(--fs-small); font-weight: 500; margin-bottom: 28px; }
+.hero__status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--clay); }
+.hero__art { background: var(--ink); border-radius: var(--radius); aspect-ratio: 4 / 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; padding: 40px; color: var(--sand); }
+.hero__art .mark-xl { height: clamp(160px, 22vw, 260px); width: auto; }
+.hero__art p { margin: 0; text-align: center; font-family: var(--font-heading); font-weight: 700; color: var(--sand); font-size: 1.125rem; }
+@media (max-width: 900px) {
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__art { aspect-ratio: 16 / 10; order: -1; }
+}
+
+/* ---------- المشكلة ---------- */
+.problem-list { display: grid; gap: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); overflow: hidden; }
+.problem-row { display: grid; grid-template-columns: 1fr 1.6fr; gap: 24px; padding: 22px 28px; border-top: 1px solid var(--line); align-items: baseline; }
+.problem-row:first-child { border-top: 0; }
+.problem-row strong { color: var(--ink); font-weight: 600; }
+.problem-row span { color: var(--text-soft); }
+@media (max-width: 640px) { .problem-row { grid-template-columns: 1fr; gap: 4px; } }
+
+/* ---------- شبكة الوحدات (بنمط شبكة الأيقونات في الهوية) ---------- */
+.module-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); overflow: hidden; }
+.module { padding: 32px 24px; border-inline-start: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
+.module .icon { margin: 0 auto 16px; width: 36px; height: 36px; color: var(--ink); }
+.module .icon--clay { color: var(--clay); }
+.module h3 { font-size: 1.0625rem; margin-bottom: 0.4em; }
+.module p { margin: 0 auto; font-size: 0.9375rem; color: var(--text-soft); line-height: 1.7; }
+@media (max-width: 960px) { .module-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .module-grid { grid-template-columns: 1fr; } }
+
+/* ---------- خطوات ---------- */
+.steps { counter-reset: step; list-style: none; padding: 0; display: grid; gap: 20px; max-width: none; }
+.steps li {
+  counter-increment: step;
+  display: grid; grid-template-columns: 56px 1fr; gap: 20px; align-items: start;
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 28px; margin: 0;
+}
+.steps li::before {
+  content: counter(step);
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--ink); color: var(--sand);
+  font-family: "Manrope", sans-serif; font-weight: 700;
+}
+.steps h3 { font-size: 1.1875rem; margin-bottom: 0.3em; }
+.steps p { margin: 0; color: var(--text-soft); }
+
+/* ---------- القيم ---------- */
+.value-list { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.value { display: grid; grid-template-columns: 220px 1fr; gap: 32px; padding: 28px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.value h3 { margin: 0; font-size: 1.25rem; }
+.value p { margin: 0; color: var(--text-soft); }
+@media (max-width: 720px) { .value { grid-template-columns: 1fr; gap: 6px; } }
+
+/* ---------- نبرة الصوت: نقول / لا نقول ---------- */
+.say-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 720px) { .say-grid { grid-template-columns: 1fr; } }
+.say-grid .card h3 { font-size: 1rem; color: var(--text-soft); font-family: var(--font-body); font-weight: 600; }
+.say-grid ul { list-style: none; padding: 0; }
+.say-grid li { color: var(--ink); font-weight: 500; }
+.say-no li { color: var(--text-soft); text-decoration: line-through; text-decoration-color: var(--error); }
+
+/* ---------- خارطة الطريق ---------- */
+.roadmap { list-style: none; padding: 0; margin: 0; max-width: none; position: relative; }
+.roadmap li { position: relative; padding: 0 36px 36px 0; margin: 0; border-inline-start: 0; }
+.roadmap li::before { content: ""; position: absolute; inset-inline-start: auto; right: 0; top: 10px; width: 14px; height: 14px; border-radius: 50%; background: var(--ink); }
+.roadmap li::after { content: ""; position: absolute; right: 6px; top: 28px; bottom: -4px; width: 2px; background: var(--line); }
+.roadmap li:last-child::after { display: none; }
+.roadmap li.is-now::before { background: var(--clay); box-shadow: 0 0 0 5px rgba(200, 116, 90, 0.25); }
+.roadmap h3 { font-size: 1.1875rem; margin-bottom: 0.25em; }
+.roadmap p { margin: 0; color: var(--text-soft); }
+
+/* ---------- معاينة الواجهة (مثال توضيحي) ---------- */
+.mock { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.mock__bar { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--line); background: var(--sand); font-size: var(--fs-small); font-weight: 600; color: var(--ink); }
+.mock__body { display: grid; grid-template-columns: 180px 1fr; min-height: 280px; }
+.mock__side { background: var(--ink); color: var(--sand); padding: 20px 16px; display: grid; gap: 6px; align-content: start; font-size: 0.9375rem; }
+.mock__side span { padding: 8px 12px; border-radius: 8px; }
+.mock__side .is-active { background: rgba(245, 239, 230, 0.14); font-weight: 600; }
+.mock__main { padding: 8px 22px; }
+.mock__row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--stone); font-size: 0.9375rem; }
+.mock__row:last-child { border-bottom: 0; }
+.mock__row .time { font-family: "Manrope", sans-serif; font-weight: 600; color: var(--ink); direction: ltr; }
+@media (max-width: 640px) { .mock__body { grid-template-columns: 1fr; } .mock__side { display: none; } }
+
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+@media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+
+/* ---------- بطاقات التواصل ---------- */
+.contact-card { display: flex; gap: 18px; align-items: flex-start; }
+.contact-card .icon { margin-top: 4px; }
+.contact-card h3 { font-size: 1.0625rem; margin-bottom: 0.2em; }
+.contact-card p { margin: 0; }
+
+/* ---------- الصفحات القانونية ---------- */
+.legal { padding-block: 48px var(--section-space); }
+.legal__layout { display: grid; grid-template-columns: 240px 1fr; gap: 56px; align-items: start; }
+.legal__toc { position: sticky; top: 100px; font-size: 0.9375rem; }
+.legal__toc h2 { font-size: 0.9375rem; font-family: var(--font-body); font-weight: 600; color: var(--text-soft); margin-bottom: 12px; }
+.legal__toc ol { list-style: none; padding: 0; margin: 0; }
+.legal__toc li { margin-bottom: 0.2em; }
+.legal__toc a { display: block; padding: 6px 12px; border-radius: 8px; color: var(--charcoal); text-decoration: none; line-height: 1.5; }
+.legal__toc a:hover { background: var(--stone); }
+.legal__content h2 { font-size: 1.375rem; margin-top: 2.2em; padding-top: 0.2em; scroll-margin-top: 100px; }
+.legal__content h2:first-of-type { margin-top: 0; }
+.legal__content h3 { font-size: 1.125rem; margin-top: 1.6em; }
+.legal__meta { color: var(--text-soft); font-size: var(--fs-small); margin-bottom: 32px; }
+@media (max-width: 900px) { .legal__layout { grid-template-columns: 1fr; gap: 24px; } .legal__toc { position: static; } }
+
+/* ---------- صفحة 404 ---------- */
+.not-found { padding-block: clamp(64px, 12vw, 140px); text-align: center; }
+.not-found .mark-xl { height: 120px; width: auto; margin: 0 auto 32px; color: var(--ink); }
+.not-found p { margin-inline: auto; }
+.not-found .btn-row { justify-content: center; }
