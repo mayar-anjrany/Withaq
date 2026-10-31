@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# غيّر العنوان إلى نطاقك الفعلي بعد النشر
-Sitemap: https://YOUR-DOMAIN.com/sitemap.xml
