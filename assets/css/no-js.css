@@ -1,4 +1,0 @@
-/* يُحمَّل فقط عند تعطيل جافاسكربت: تبقى القائمة ظاهرة */
-.site-nav { display: flex !important; }
-.nav-toggle { display: none !important; }
-@media (max-width: 1020px) { .site-nav { position: static; } .site-header__inner { flex-wrap: wrap; } }
